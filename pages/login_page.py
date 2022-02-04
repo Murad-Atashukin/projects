@@ -15,11 +15,9 @@ class LoginPage(BasePage):
         assert 'login' in self.browser.current_url, 'Error: string login is not found'
         # реализуем проверку на корректный url адрес
 
-
     def should_be_login_form(self):
         assert self.is_element_present(*LoginPageLocators.LOGIN_FORM), "Login link is not presented"
         # реализуем проверку, что есть форма логина
-
 
     def should_be_register_form(self):
         assert self.is_element_present(*LoginPageLocators.LOGIN_REGISTER), "Login link is not presented"
