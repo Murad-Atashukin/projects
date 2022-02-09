@@ -2,9 +2,11 @@ from .base_page import BasePage
 from .locators import ProductPageLocators
 
 class ProductPage(BasePage):
+
     def go_to_add_product(self):
         button = self.browser.find_element(*ProductPageLocators.BUTTON_ADD)
         button.click()
+
     def should_be_coincide_name_books(self):
         name_book = self.browser.find_element(*ProductPageLocators.BOOK_NAME).text
         check_name_book = self.browser.find_element(*ProductPageLocators.CHECK_BOOK_NAME).text

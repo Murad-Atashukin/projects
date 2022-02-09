@@ -11,7 +11,13 @@ class BasePage:
         self.url = url
         self.browser.implicitly_wait(timeout)
 
+    def go_to_basket(self):
+        '''метод для перехода в корзину'''
+        basket = self.browser.find_element(*BasePageLocators.BASKET_LINK)
+        basket.click()
+
     def is_element_present(self, how, what):
+        ''' метод проверяющий пресутсвие элемента на странице '''
         try:
             self.browser.find_element(how, what)
         except (NoSuchElementException):
@@ -19,6 +25,7 @@ class BasePage:
         return True
 
     def open(self):
+        ''' метод открывающий браузер, с указанной ссылкой '''
         self.browser.get(self.url)
 
     def solve_quiz_and_get_code(self):
@@ -53,6 +60,7 @@ class BasePage:
         return True         # иначе тест прошел
 
     def go_to_login_page(self):
+        ''' метод для перехода к авторизации '''
         link = self.browser.find_element(*BasePageLocators.LOGIN_LINK)
         link.click()
 
